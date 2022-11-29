@@ -8,8 +8,11 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 public class Test2Steps {
@@ -27,6 +30,9 @@ public class Test2Steps {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
         driver.navigate().to(startUrl);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By
+                .xpath("//*[@id='onetrust-accept-btn-handler']")));
         driver.findElement(By.xpath("//*[@id='onetrust-accept-btn-handler']")).click();
     }
 
