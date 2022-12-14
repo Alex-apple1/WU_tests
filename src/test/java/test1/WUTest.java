@@ -9,12 +9,12 @@ public class WUTest extends StarterClass {
     public void task1Test() throws InterruptedException {
         String expectedURL = "https://www.westernunion.com/us/en/home.html";
 
-        frontPage.open();
-        Thread.sleep(2000);
-        frontPage.clickTrustAcceptButton();
-        frontPage.clickHamburgerButton();
-        frontPage.clickHamburgerButtonSettings();
-        frontPage.clickSelectCountryFieldAndSelectUSA();
+        frontPage
+                .open()
+                .clickTrustAcceptButton()
+                .clickHamburgerButton()
+                .clickHamburgerButtonSettings()
+                .clickSelectCountryFieldAndSelectUSA();
 
         String actualURL = driver.getCurrentUrl();
         Assert.assertTrue(actualURL.contains(expectedURL));

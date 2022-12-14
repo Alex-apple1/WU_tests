@@ -23,22 +23,28 @@ public class FrontPage extends AbstractBasePage {
     public FrontPage(WebDriver driver) {
         super(driver);
     }
-    public void open() {
+    public FrontPage open() {
         openFrontPage();
+        return this;
     }
-    public void clickTrustAcceptButton() {
+    public FrontPage clickTrustAcceptButton() {
         trustAcceptButton.click();
+        return this;
     }
-    public void clickHamburgerButton() {
+    public FrontPage clickHamburgerButton() {
         hamburgerButton.click();
+        return this;
     }
-    public void clickHamburgerButtonSettings() {
+    public FrontPage clickHamburgerButtonSettings() throws InterruptedException {
+        Thread.sleep(1000);
         hamburgerButtonSettings.click();
+        return this;
     }
-    public void clickSelectCountryFieldAndSelectUSA() {
+    public FrontPage clickSelectCountryFieldAndSelectUSA() {
         selectCountryField.click();
         selectUSAOption.click();
         selectUSAOptionConfirmation.click();
+        return this;
     }
     public void pressFindLocationsButton() {
         findLocationsButton.click();

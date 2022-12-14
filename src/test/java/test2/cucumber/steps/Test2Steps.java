@@ -14,17 +14,14 @@ public class Test2Steps extends StarterClass {
         Thread.sleep(2000);
         frontPage.clickTrustAcceptButton();
     }
-
     @When("I press Find locations button")
     public void i_press_find_locations_button() {
         frontPage.pressFindLocationsButton();
     }
-
     @And("on the next page I choose my zip code {string}")
     public void on_the_next_page_i_choose_my_zip_code(String zipCode) {
         findLocationPage.enterZipCode(zipCode);
     }
-
     @And("hit Continue button")
     public void hit_continue_button() {
         findLocationPage.hitContinueButton();
