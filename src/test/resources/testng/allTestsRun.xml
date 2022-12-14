@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="allTestsSuite">
+    <test name="allTests">
+        <classes>
+            <class name="test1.WUTest"/>
+            <class name="test2.cucumber.RunTest"/>
+        </classes>
+    </test>
+</suite>

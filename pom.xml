@@ -45,8 +45,18 @@
             <artifactId>cucumber-java</artifactId>
             <version>7.3.4</version>
         </dependency>
-
-
     </dependencies>
+    <profiles>
+        <profile>
+            <id>AllTestsRun.run</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <maven-surefire-plugin.suiteXmlFile>${project.build.testOutputDirectory}/testng/allTestsRun.xml
+                </maven-surefire-plugin.suiteXmlFile>
+            </properties>
+        </profile>
+    </profiles>
 
 </project>

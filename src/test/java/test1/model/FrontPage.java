@@ -3,14 +3,8 @@ package test1.model;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
-
-public class FrontPage {
-    protected WebDriverWait wait;
-
+public class FrontPage extends AbstractBasePage {
     @FindBy(xpath = "//*[@id='onetrust-accept-btn-handler']")
     private WebElement trustAcceptButton;
     @FindBy(css = "#hamburger-nav-item")
@@ -23,10 +17,14 @@ public class FrontPage {
     private WebElement selectUSAOption;
     @FindBy(xpath = "//*[@id='settingsPage']/maincontents/div[3]/div[2]/div[2]/button/translate")
     private WebElement selectUSAOptionConfirmation;
+    @FindBy(xpath = "//*[@id='header-content']/header/div/nav/ul[1]/li[3]/a/span")
+    private WebElement findLocationsButton;
 
     public FrontPage(WebDriver driver) {
-        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        PageFactory.initElements(driver, this);
+        super(driver);
+    }
+    public void open() {
+        openFrontPage();
     }
     public void clickTrustAcceptButton() {
         trustAcceptButton.click();
@@ -41,5 +39,8 @@ public class FrontPage {
         selectCountryField.click();
         selectUSAOption.click();
         selectUSAOptionConfirmation.click();
+    }
+    public void pressFindLocationsButton() {
+        findLocationsButton.click();
     }
 }
